@@ -34,7 +34,7 @@ func Test_generateBitcoinKeys(t *testing.T) {
 		},
 		{
 			"It can generate keys for the last page",
-			args{"904625697166532776746648320380374280100293470930272690489102837043110636675", 128},
+			args{"6277101735386680763835789423207666416102355444464034512896", 18446744073709551616},
 			[]key{
 				// 64 keys
 				{private: "5Km2kuu7vtFDPpxywn4u3NLpbr5jKpTB3jsuDU2KYEqemizF9vA", compressed: "12d8ggXP5MSJoEuqtRJqyZpLxqUAztmrpH", uncompressed: "1PDSZN2qgFcuay1vVRxYo1yp9gfXeSKJgt"},
@@ -105,7 +105,7 @@ func Test_generateBitcoinKeys(t *testing.T) {
 		},
 		{
 			"It generates nothing when out of range",
-			args{"904625697166532776746648320380374280100293470930272690489102837043110636999", 128},
+			args{"904625697166532776746648320380374280100293470930272690489102837043110636999", 18446744073709551616},
 			[]key{},
 		},
 	}
@@ -139,18 +139,18 @@ func Test_findBtcWifPage(t *testing.T) {
 	}{
 		{
 			"It can find the page that a random WIF is on",
-			args{"5KQkycVaH2urSTz9CQ4fGdWz3a5n9TFKLDwxzREv8tBtcXYW9Ua", 128},
-			"741968862012117112677494014490987968047399326671284349197372731288562495168",
+			args{"5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip9cRTWMvUGazvr7pyk", 18446744073709551616},
+			"2",
 		},
 		{
 			"It can find a WIF on the first page",
-			args{"5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAnchuDf", 128},
+			args{"5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAnchuDf", 18446744073709551616},
 			"1",
 		},
 		{
 			"It can find a WIF on the last page",
-			args{"5Km2kuu7vtFDPpxywn4u3NLpbr5jKpTB3jsuDU2KYEqetqj84qw", 128},
-			"904625697166532776746648320380374280100293470930272690489102837043110636675",
+			args{"5Km2kuu7vtFDPpxywn4u3NLpbr5jKpTB3jsuDU2KYEqetqj84qw", 18446744073709551616},
+			"6277101735386680763835789423207666416102355444464034512896",
 		},
 	}
 	for _, tt := range tests {
